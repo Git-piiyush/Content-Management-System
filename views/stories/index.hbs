@@ -1,0 +1,28 @@
+<div class="row">
+  {{#each stories}}
+    <div class="col s12 m4">
+      <div class="card d-flex align-items-stretch">
+          
+        <div class="card-image">
+           {{{editIcon user ../user _id}}}
+          <img style="height:350px" src="{{img.url}}" alt="" />
+        </div>
+        <div class="card-content center-align">
+          <h5>{{title}}</h5>
+          <p>{{truncate (stripTags body) 50}}</p>
+          <br />
+          {{! stripTags (truncate body 150) }}
+          <div class="chip">
+            <img src="{{user.image}}" alt="" />
+            <a href="/stories/user/{{user._id}}">{{user.displayName}}</a>
+          </div>
+        </div>
+        <div class="card-action center-align">
+          <a href="/stories/{{_id}}" class="btn grey">Read More</a>
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <p>No Post to display</p>
+  {{/each}}
+</div>
